@@ -1,17 +1,16 @@
-package com.aye10032.rtroapi.pojo;
+package com.aye10032.rtroapi.temputil;
 
-import java.util.Date;
 import java.util.Objects;
 
 /**
  * @program: rtroapi
- * @className: Video
- * @Description: 视频实体类
+ * @className: OldVideoPojo
+ * @Description: 旧版视频实体类
  * @version: v1.0
  * @author: Aye10032
- * @date: 2021/4/22 下午 1:14
+ * @date: 2021/7/13 下午 7:11
  */
-public class VideoInfo {
+public class OldVideoPojo {
 
     public Integer ID;
     public String URL;
@@ -20,12 +19,12 @@ public class VideoInfo {
     public boolean ISTRANS;
     public Long FROMEQQ;
     public String DESCRIPTION;
-    public Date TIME;
+    public String TIME;
 
-    public VideoInfo() {
+    public OldVideoPojo() {
     }
 
-    public VideoInfo(Integer ID, String URL, boolean HASDONE, boolean NEEDTRANS, boolean ISTRANS, Long FROMEQQ, String DESCRIPTION, Date TIME) {
+    public OldVideoPojo(Integer ID, String URL, boolean HASDONE, boolean NEEDTRANS, boolean ISTRANS, Long FROMEQQ, String DESCRIPTION, String TIME) {
         this.ID = ID;
         this.URL = URL;
         this.HASDONE = HASDONE;
@@ -92,11 +91,11 @@ public class VideoInfo {
         this.DESCRIPTION = DESCRIPTION;
     }
 
-    public Date getTIME() {
+    public String getTIME() {
         return TIME;
     }
 
-    public void setTIME(Date TIME) {
+    public void setTIME(String TIME) {
         this.TIME = TIME;
     }
 
@@ -104,8 +103,8 @@ public class VideoInfo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        VideoInfo videoInfo = (VideoInfo) o;
-        return HASDONE == videoInfo.HASDONE && NEEDTRANS == videoInfo.NEEDTRANS && ISTRANS == videoInfo.ISTRANS && Objects.equals(ID, videoInfo.ID) && Objects.equals(URL, videoInfo.URL) && Objects.equals(FROMEQQ, videoInfo.FROMEQQ) && Objects.equals(DESCRIPTION, videoInfo.DESCRIPTION) && Objects.equals(TIME, videoInfo.TIME);
+        OldVideoPojo that = (OldVideoPojo) o;
+        return HASDONE == that.HASDONE && NEEDTRANS == that.NEEDTRANS && ISTRANS == that.ISTRANS && Objects.equals(ID, that.ID) && Objects.equals(URL, that.URL) && Objects.equals(FROMEQQ, that.FROMEQQ) && Objects.equals(DESCRIPTION, that.DESCRIPTION) && Objects.equals(TIME, that.TIME);
     }
 
     @Override
@@ -115,7 +114,7 @@ public class VideoInfo {
 
     @Override
     public String toString() {
-        return "VideoInfo{" +
+        return "OldVideoPojo{" +
                 "ID=" + ID +
                 ", URL='" + URL + '\'' +
                 ", HASDONE=" + HASDONE +
@@ -123,7 +122,7 @@ public class VideoInfo {
                 ", ISTRANS=" + ISTRANS +
                 ", FROMEQQ=" + FROMEQQ +
                 ", DESCRIPTION='" + DESCRIPTION + '\'' +
-                ", TIME=" + TIME +
+                ", TIME='" + TIME + '\'' +
                 '}';
     }
 }

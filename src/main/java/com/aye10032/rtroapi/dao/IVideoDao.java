@@ -1,6 +1,8 @@
 package com.aye10032.rtroapi.dao;
 
 import com.aye10032.rtroapi.pojo.VideoInfo;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -16,10 +18,10 @@ import java.util.List;
  */
 public interface IVideoDao {
 
-    @Select("SELECT count(*) FROM sqlite_master WHERE type=\"table\" AND name = \"videoinfo\"")
+    @Select("SELECT count(*) FROM sqlite_master WHERE type=\"table\" AND name = \"video_info\"")
     Integer TableExist();
 
-    @Update("create table videoinfo\n" +
+    @Update("create table video_info\n" +
             "(\n" +
             "    ID          INTEGER not null\n" +
             "        primary key autoincrement,\n" +
@@ -29,14 +31,20 @@ public interface IVideoDao {
             "    ISTRANS     INTEGER not null,\n" +
             "    FROMEQQ     INTEGER not null,\n" +
             "    DESCRIPTION TEXT    not null,\n" +
-            "    TIME        TEXT    not null\n" +
+            "    TIME        BLOB    not null\n" +
             ");")
     void CreateVideoTable();
 
-    @Select("SELECT * FROM videoinfo WHERE ID=#{id}")
+    @Select("SELECT * FROM video_info WHERE ID=#{id}")
     List<VideoInfo> getVideoByID(Integer id);
 
-    @Select("SELECT * FROM videoinfo WHERE HASDONE=#{HASDONE} AND NEEDTRANS=#{NEEDTRANS}")
+    @Select("SELECT * FROM video_info WHERE HASDONE=#{HASDONE} AND NEEDTRANS=#{NEEDTRANS}")
     List<VideoInfo> getVideoList(VideoInfo videoInfo);
+
+    @Insert("INSERT INTO video_info" +
+            "('URL','HASDONE','NEEDTRANS','ISTRANS','FROMEQQ','DESCRIPTION','TIME') VALUES " +
+            "(#{URL}, #{HASDONE}, #{NEEDTRANS}, #{ISTRANS}, #{FROMEQQ}, #{DESCRIPTION}, #{TIME});")
+    @Options(useGeneratedKeys = true, keyProperty = "ID", keyColumn = "ID")
+    Integer insertNewVideo(VideoInfo videoInfo);
 
 }

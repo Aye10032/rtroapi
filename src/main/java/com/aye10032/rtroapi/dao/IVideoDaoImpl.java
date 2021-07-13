@@ -87,4 +87,15 @@ public class IVideoDaoImpl implements IVideoDao {
         closeAll();
         return videoInfos;
     }
+
+    @Override
+    public Integer insertNewVideo(VideoInfo videoInfo) {
+        initSession();
+
+        dao.insertNewVideo(videoInfo);
+
+        session.commit();
+        closeAll();
+        return videoInfo.getID();
+    }
 }
