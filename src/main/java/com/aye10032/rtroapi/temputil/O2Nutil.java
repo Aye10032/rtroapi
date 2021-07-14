@@ -34,14 +34,14 @@ public class O2Nutil {
         for (OldVideoPojo videos:videoPojos) {
             try {
                 VideoInfo videoInfo = new VideoInfo();
-                videoInfo.setURL(videos.URL);
-                videoInfo.setHASDONE(videos.HASDONE);
-                videoInfo.setNEEDTRANS(videos.NEEDTRANS);
-                videoInfo.setISTRANS(videos.ISTRANS);
-                videoInfo.setFROMEQQ(videos.FROMEQQ);
-                videoInfo.setDESCRIPTION(videos.DESCRIPTION);
+                videoInfo.setUrl(videos.URL);
+                videoInfo.setHasdone(videos.HASDONE);
+                videoInfo.setNeedtrans(videos.NEEDTRANS);
+                videoInfo.setIstrans(videos.ISTRANS);
+                videoInfo.setFromeqq(videos.FROMEQQ);
+                videoInfo.setDescription(videos.DESCRIPTION);
                 Date date = sdf.parse(videos.TIME);
-                videoInfo.setTIME(date);
+                videoInfo.setTime(date);
                 dao1.insertNewVideo(videoInfo);
             } catch (ParseException e) {
                 e.printStackTrace();

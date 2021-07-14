@@ -115,7 +115,7 @@ public class OldVideoPojo {
     @Override
     public String toString() {
         return "OldVideoPojo{" +
-                "ID=" + ID +
+                "id=" + ID +
                 ", URL='" + URL + '\'' +
                 ", HASDONE=" + HASDONE +
                 ", NEEDTRANS=" + NEEDTRANS +

@@ -67,6 +67,17 @@ public class IVideoDaoImpl implements IVideoDao {
     }
 
     @Override
+    public List<VideoInfo> getAllVideo() {
+        List<VideoInfo> videoInfos = null;
+        initSession();
+
+        videoInfos = dao.getAllVideo();
+
+        closeAll();
+        return videoInfos;
+    }
+
+    @Override
     public List<VideoInfo> getVideoByID(Integer id) {
         List<VideoInfo> videoInfos = null;
         initSession();
@@ -96,6 +107,6 @@ public class IVideoDaoImpl implements IVideoDao {
 
         session.commit();
         closeAll();
-        return videoInfo.getID();
+        return videoInfo.getId();
     }
 }

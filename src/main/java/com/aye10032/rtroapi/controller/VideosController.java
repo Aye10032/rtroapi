@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @program: rtroapi
  * @className: VideosController
@@ -27,6 +29,13 @@ public class VideosController {
         if (id != -1) {
             VideoInfo videoInfo = dao.getVideoByID(id).get(0);
         }
+    }
+
+    @GetMapping("/getAllVideo")
+    public List<VideoInfo> getAllVideo(){
+        IVideoDaoImpl dao = new IVideoDaoImpl();
+
+        return dao.getAllVideo();
     }
 
 }
