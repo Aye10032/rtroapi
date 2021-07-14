@@ -1,6 +1,9 @@
 package com.aye10032.rtroapi.controller;
 
 import com.aye10032.rtroapi.dao.IVideoDaoImpl;
+import com.aye10032.rtroapi.data.APIException;
+import com.aye10032.rtroapi.data.ResultCode;
+import com.aye10032.rtroapi.data.ResultVO;
 import com.aye10032.rtroapi.pojo.VideoInfo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,4 +48,30 @@ public class VideosController {
         return dao.getTODOVideo(false);
     }
 
+    @GetMapping("/getNeedTransVideo")
+    public List<VideoInfo> getNeedTransVideo(){
+        IVideoDaoImpl dao = new IVideoDaoImpl();
+
+        VideoInfo videoInfo = new VideoInfo();
+        videoInfo.setHasdone(false);
+        videoInfo.setNeedtrans(true);
+
+        return dao.getNeedTransVideo(videoInfo);
+    }
+
+    @GetMapping("/getVideo")
+    public VideoInfo getVideo(
+            @RequestParam(value = "id", defaultValue = "-1")Integer id){
+        IVideoDaoImpl dao = new IVideoDaoImpl();
+
+        if (id != -1){
+            try {
+                return dao.getVideoByID(id).get(0);
+            }catch (IndexOutOfBoundsException e){
+                throw new APIException("该ID视频不存在");
+            }
+        }else {
+            throw new APIException("参数为空");
+        }
+    }
 }

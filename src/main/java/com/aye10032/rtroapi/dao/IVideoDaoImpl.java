@@ -100,11 +100,11 @@ public class IVideoDaoImpl implements IVideoDao {
     }
 
     @Override
-    public List<VideoInfo> getVideoList(VideoInfo videoInfo) {
+    public List<VideoInfo> getNeedTransVideo(VideoInfo videoInfo) {
         List<VideoInfo> videoInfos = null;
         initSession();
 
-        videoInfos = dao.getVideoList(videoInfo);
+        videoInfos = dao.getNeedTransVideo(videoInfo);
 
         closeAll();
         return videoInfos;

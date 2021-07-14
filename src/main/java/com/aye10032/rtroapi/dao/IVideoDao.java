@@ -41,11 +41,11 @@ public interface IVideoDao {
     @Select("SELECT * FROM video_info WHERE HASDONE=#{hasdone}")
     List<VideoInfo> getTODOVideo(Boolean hasdone);
 
+    @Select("SELECT * FROM video_info WHERE HASDONE=#{hasdone} AND NEEDTRANS=#{needtrans}")
+    List<VideoInfo> getNeedTransVideo(VideoInfo videoInfo);
+
     @Select("SELECT * FROM video_info WHERE id=#{id}")
     List<VideoInfo> getVideoByID(Integer id);
-
-    @Select("SELECT * FROM video_info WHERE HASDONE=#{HASDONE} AND NEEDTRANS=#{NEEDTRANS}")
-    List<VideoInfo> getVideoList(VideoInfo videoInfo);
 
     @Insert("INSERT INTO video_info" +
             "('URL','HASDONE','NEEDTRANS','ISTRANS','FROMEQQ','DESCRIPTION','TIME') VALUES " +
