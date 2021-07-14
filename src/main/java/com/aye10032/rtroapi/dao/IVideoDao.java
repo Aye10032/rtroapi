@@ -38,6 +38,9 @@ public interface IVideoDao {
     @Select("SELECT * FROM video_info")
     List<VideoInfo> getAllVideo();
 
+    @Select("SELECT * FROM video_info WHERE HASDONE=#{hasdone}")
+    List<VideoInfo> getTODOVideo(Boolean hasdone);
+
     @Select("SELECT * FROM video_info WHERE id=#{id}")
     List<VideoInfo> getVideoByID(Integer id);
 

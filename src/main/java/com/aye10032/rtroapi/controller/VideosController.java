@@ -38,4 +38,11 @@ public class VideosController {
         return dao.getAllVideo();
     }
 
+    @GetMapping("/getTODOVideo")
+    public List<VideoInfo> getTODOVideo(){
+        IVideoDaoImpl dao = new IVideoDaoImpl();
+
+        return dao.getTODOVideo(false);
+    }
+
 }
