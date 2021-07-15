@@ -2,8 +2,6 @@ package com.aye10032.rtroapi.controller;
 
 import com.aye10032.rtroapi.dao.IVideoDaoImpl;
 import com.aye10032.rtroapi.data.APIException;
-import com.aye10032.rtroapi.data.ResultCode;
-import com.aye10032.rtroapi.data.ResultVO;
 import com.aye10032.rtroapi.pojo.VideoInfo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
