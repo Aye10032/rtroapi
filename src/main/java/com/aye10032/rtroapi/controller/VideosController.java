@@ -3,10 +3,9 @@ package com.aye10032.rtroapi.controller;
 import com.aye10032.rtroapi.dao.IVideoDaoImpl;
 import com.aye10032.rtroapi.data.APIException;
 import com.aye10032.rtroapi.pojo.VideoInfo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -71,5 +70,12 @@ public class VideosController {
         }else {
             throw new APIException("参数为空");
         }
+    }
+
+    @PostMapping("/addVideo")
+    public Integer addVideo(@RequestBody @Valid VideoInfo videoInfo){
+        IVideoDaoImpl dao = new IVideoDaoImpl();
+
+        return dao.insertNewVideo(videoInfo);
     }
 }

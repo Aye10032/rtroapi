@@ -2,11 +2,7 @@ package com.aye10032.rtroapi.controller;
 
 import com.aye10032.rtroapi.dao.ITransDaoImpl;
 import com.aye10032.rtroapi.data.APIException;
-import com.aye10032.rtroapi.data.ResultVO;
 import com.aye10032.rtroapi.pojo.TransList;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
