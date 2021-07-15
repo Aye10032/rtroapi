@@ -2,11 +2,14 @@ package com.aye10032.rtroapi.controller;
 
 import com.aye10032.rtroapi.dao.ITransDaoImpl;
 import com.aye10032.rtroapi.data.APIException;
+import com.aye10032.rtroapi.data.ResultVO;
 import com.aye10032.rtroapi.pojo.TransList;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -37,6 +40,13 @@ public class TransController {
         } else {
             throw new APIException("参数为空");
         }
+    }
+
+    @PostMapping("/addTrans")
+    public Integer addTrans(@RequestBody @Valid TransList transList){
+        ITransDaoImpl dao = new ITransDaoImpl();
+
+        return dao.insertTrans(transList);
     }
 
 }

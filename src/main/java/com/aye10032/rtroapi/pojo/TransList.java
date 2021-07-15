@@ -1,8 +1,12 @@
 package com.aye10032.rtroapi.pojo;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.NonNull;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -18,9 +22,14 @@ import java.util.Date;
 public class TransList {
 
     private Integer id;
+
+    @NotBlank(message = "必须绑定视频ID")
     private Integer fromid;
+    @NotBlank(message = "来源账号不能为空")
     private Long fromqq;
+    @NotBlank(message = "翻译信息不能为空")
     private String msg;
+    @NotBlank(message = "添加时间不能为空")
     private Date time;
 
 }
