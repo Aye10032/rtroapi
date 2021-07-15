@@ -15,6 +15,6 @@ import java.util.List;
 public interface OldVideoDao {
 
     @Select("SELECT * FROM videoinfo")
-    List<OldVideoPojo> getVideos();
+    List<OldVideo> getVideos();
 
 }

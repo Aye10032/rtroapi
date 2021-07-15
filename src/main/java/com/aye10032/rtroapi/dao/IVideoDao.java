@@ -49,7 +49,7 @@ public interface IVideoDao {
 
     @Insert("INSERT INTO video_info" +
             "('URL','HASDONE','NEEDTRANS','ISTRANS','FROMEQQ','DESCRIPTION','TIME') VALUES " +
-            "(#{URL}, #{HASDONE}, #{NEEDTRANS}, #{ISTRANS}, #{FROMEQQ}, #{DESCRIPTION}, #{TIME});")
+            "(#{url}, #{hasdone}, #{needtrans}, #{istrans}, #{fromqq}, #{description}, #{time});")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     Integer insertNewVideo(VideoInfo videoInfo);
 

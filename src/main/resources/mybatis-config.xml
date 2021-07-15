@@ -18,6 +18,8 @@
 
     <mappers>
         <mapper class="com.aye10032.rtroapi.dao.IVideoDao"/>
+        <mapper class="com.aye10032.rtroapi.dao.ITransDao"/>
         <mapper class="com.aye10032.rtroapi.temputil.OldVideoDao"/>
+        <mapper class="com.aye10032.rtroapi.temputil.OldTransListDao"/>
     </mappers>
 </configuration>

@@ -11,17 +11,17 @@ import java.util.List;
 
 /**
  * @program: rtroapi
- * @className: OldVideoDaoImpl
- * @Description: 旧版视频DAO接口实现
+ * @className: OldTransListDaoImpl
+ * @Description: 旧版翻译信息接口实现
  * @version: v1.0
  * @author: Aye10032
- * @date: 2021/7/13 下午 7:31
+ * @date: 2021/7/14 下午 6:35
  */
-public class OldVideoDaoImpl implements OldVideoDao{
+public class OldTransListDaoImpl implements OldTransListDao{
 
     private InputStream in;
     private SqlSession session;
-    private OldVideoDao dao;
+    private OldTransListDao dao;
 
     private void initSession() {
         try {
@@ -29,7 +29,7 @@ public class OldVideoDaoImpl implements OldVideoDao{
             SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
             SqlSessionFactory factory = builder.build(in);
             session = factory.openSession();
-            dao = session.getMapper(OldVideoDao.class);
+            dao = session.getMapper(OldTransListDao.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,15 +44,14 @@ public class OldVideoDaoImpl implements OldVideoDao{
         }
     }
 
-
     @Override
-    public List<OldVideo> getVideos() {
-        List<OldVideo> videoPojoList = null;
+    public List<OldTransList> getTransList() {
+        List<OldTransList> transLists = null;
         initSession();
 
-        videoPojoList = dao.getVideos();
+        transLists = dao.getTransList();
 
         closeAll();
-        return videoPojoList;
+        return transLists;
     }
 }

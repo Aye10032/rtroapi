@@ -19,12 +19,13 @@ import java.util.Objects;
 @NoArgsConstructor
 public class VideoInfo {
 
-    public Integer id;
-    public String url;
-    public boolean hasdone;
-    public boolean needtrans;
-    public boolean istrans;
-    public Long fromeqq;
-    public String description;
-    public Date time;
+    private Integer id;
+    private String url;
+    private boolean hasdone;
+    private boolean needtrans;
+    private boolean istrans;
+    private Long fromeqq;
+    private String description;
+    private Date time;
+
 }
