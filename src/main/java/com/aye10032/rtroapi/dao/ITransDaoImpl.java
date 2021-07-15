@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @program: rtroapi
@@ -63,6 +64,17 @@ public class ITransDaoImpl implements ITransDao{
 
         session.commit();
         closeAll();
+    }
+
+    @Override
+    public List<TransList> getTransByVideoID(Integer id) {
+        List<TransList> transLists = null;
+        initSession();
+
+        transLists = dao.getTransByVideoID(id);
+
+        closeAll();
+        return transLists;
     }
 
     @Override

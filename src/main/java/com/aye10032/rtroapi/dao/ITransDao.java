@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 /**
  * @program: rtroapi
  * @className: ITransDao
@@ -30,10 +32,12 @@ public interface ITransDao {
             ");")
     void CreateTransTable();
 
+    @Select("SELECT * FROM trans_list WHERE FROMID=#{id}")
+    List<TransList> getTransByVideoID(Integer id);
+
     @Insert("INSERT INTO trans_list" +
             "('FROMID','FROMQQ','MSG','TIME') VALUES " +
             "(#{fromid}, #{fromqq}, #{msg}, #{time});")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     Integer insertTrans(TransList transList);
-
 }
