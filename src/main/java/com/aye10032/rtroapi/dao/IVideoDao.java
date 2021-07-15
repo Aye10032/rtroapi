@@ -29,7 +29,7 @@ public interface IVideoDao {
             "    HASDONE     INTEGER not null,\n" +
             "    NEEDTRANS   INTEGER not null,\n" +
             "    ISTRANS     INTEGER not null,\n" +
-            "    FROMEQQ     INTEGER not null,\n" +
+            "    FROMQQ     INTEGER not null,\n" +
             "    DESCRIPTION TEXT    not null,\n" +
             "    TIME        BLOB    not null\n" +
             ");")
@@ -48,7 +48,7 @@ public interface IVideoDao {
     List<VideoInfo> getVideoByID(Integer id);
 
     @Insert("INSERT INTO video_info" +
-            "('URL','HASDONE','NEEDTRANS','ISTRANS','FROMEQQ','DESCRIPTION','TIME') VALUES " +
+            "('URL','HASDONE','NEEDTRANS','ISTRANS','FROMQQ','DESCRIPTION','TIME') VALUES " +
             "(#{url}, #{hasdone}, #{needtrans}, #{istrans}, #{fromqq}, #{description}, #{time});")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     Integer insertNewVideo(VideoInfo videoInfo);

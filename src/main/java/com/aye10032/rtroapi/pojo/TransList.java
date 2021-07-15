@@ -30,6 +30,6 @@ public class TransList {
     @NotBlank(message = "翻译信息不能为空")
     private String msg;
     @NotBlank(message = "添加时间不能为空")
-    private Date time;
+    private Long time;
 
 }

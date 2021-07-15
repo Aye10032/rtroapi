@@ -46,10 +46,10 @@ public class OldTest {
                 videoInfo.setHasdone(videos.isHASDONE());
                 videoInfo.setNeedtrans(videos.isNEEDTRANS());
                 videoInfo.setIstrans(videos.isISTRANS());
-                videoInfo.setFromeqq(videos.getFROMEQQ());
+                videoInfo.setFromqq(videos.getFROMEQQ());
                 videoInfo.setDescription(videos.getDESCRIPTION());
                 Date date = sdf.parse(videos.getTIME());
-                videoInfo.setTime(date);
+                videoInfo.setTime(date.getTime());
                 dao1.insertNewVideo(videoInfo);
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -78,7 +78,7 @@ public class OldTest {
                 transList.setFromqq(oldTransList.getFromqq());
                 transList.setMsg(oldTransList.getMsg());
                 Date date = sdf.parse(oldTransList.getTime());
-                transList.setTime(date);
+                transList.setTime(date.getTime());
                 dao1.insertTrans(transList);
             } catch (ParseException e) {
                 e.printStackTrace();

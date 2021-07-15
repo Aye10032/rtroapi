@@ -42,6 +42,6 @@ public class VideoInfo {
     private String description;
 
     @NotNull(message = "日期不能为空")
-    private Date time;
+    private Long time;
 
 }
