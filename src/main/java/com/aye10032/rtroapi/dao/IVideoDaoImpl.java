@@ -122,12 +122,13 @@ public class IVideoDaoImpl implements IVideoDao {
     }
 
     @Override
-    public void updateVideo(VideoInfo videoInfo) {
+    public Integer updateVideo(VideoInfo videoInfo) {
         initSession();
 
         dao.updateVideo(videoInfo);
 
         session.commit();
         closeAll();
+        return videoInfo.getId();
     }
 }

@@ -56,6 +56,6 @@ public interface IVideoDao {
     @Update("UPDATE video_info SET "+
             "URL=#{url}, HASDONE=#{hasdone}, NEEDTRANS=#{needtrans}, ISTRANS=#{istrans}, " +
             "FROMQQ=#{fromqq}, DESCRIPTION=#{description}, TIME=#{time} WHERE ID=#{id};")
-    void updateVideo(VideoInfo videoInfo);
+    Integer updateVideo(VideoInfo videoInfo);
 
 }
