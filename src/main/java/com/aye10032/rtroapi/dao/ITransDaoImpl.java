@@ -87,4 +87,14 @@ public class ITransDaoImpl implements ITransDao{
         closeAll();
         return transList.getId();
     }
+
+    @Override
+    public void updateTrans(TransList transList) {
+        initSession();
+
+        dao.updateTrans(transList);
+
+        session.commit();
+        closeAll();
+    }
 }

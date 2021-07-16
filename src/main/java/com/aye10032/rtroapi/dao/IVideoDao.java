@@ -23,7 +23,7 @@ public interface IVideoDao {
 
     @Update("create table video_info\n" +
             "(\n" +
-            "    id          INTEGER not null\n" +
+            "    ID          INTEGER not null\n" +
             "        primary key autoincrement,\n" +
             "    URL         TEXT    not null,\n" +
             "    HASDONE     INTEGER not null,\n" +
@@ -44,13 +44,18 @@ public interface IVideoDao {
     @Select("SELECT * FROM video_info WHERE HASDONE=#{hasdone} AND NEEDTRANS=#{needtrans}")
     List<VideoInfo> getNeedTransVideo(VideoInfo videoInfo);
 
-    @Select("SELECT * FROM video_info WHERE id=#{id}")
+    @Select("SELECT * FROM video_info WHERE ID=#{id}")
     List<VideoInfo> getVideoByID(Integer id);
 
     @Insert("INSERT INTO video_info" +
             "('URL','HASDONE','NEEDTRANS','ISTRANS','FROMQQ','DESCRIPTION','TIME') VALUES " +
             "(#{url}, #{hasdone}, #{needtrans}, #{istrans}, #{fromqq}, #{description}, #{time});")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "ID")
     Integer insertNewVideo(VideoInfo videoInfo);
+
+    @Update("UPDATE video_info SET "+
+            "URL=#{url}, HASDONE=#{hasdone}, NEEDTRANS=#{needtrans}, ISTRANS=#{istrans}, " +
+            "FROMQQ=#{fromqq}, DESCRIPTION=#{description}, TIME=#{time} WHERE ID=#{id};")
+    void updateVideo(VideoInfo videoInfo);
 
 }

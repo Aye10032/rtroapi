@@ -38,6 +38,10 @@ public interface ITransDao {
     @Insert("INSERT INTO trans_list" +
             "('FROMID','FROMQQ','MSG','TIME') VALUES " +
             "(#{fromid}, #{fromqq}, #{msg}, #{time});")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "ID")
     Integer insertTrans(TransList transList);
+
+    @Update("UPDATE trans_list SET " +
+            "FROMID=#{fromid}, FROMQQ=#{fromqq}, MSG=#{msg}, TIME=#{time} WHERE ID=#{id}")
+    void updateTrans(TransList transList);
 }

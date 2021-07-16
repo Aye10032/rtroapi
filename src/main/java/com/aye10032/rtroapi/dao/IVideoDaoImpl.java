@@ -120,4 +120,14 @@ public class IVideoDaoImpl implements IVideoDao {
         closeAll();
         return videoInfo.getId();
     }
+
+    @Override
+    public void updateVideo(VideoInfo videoInfo) {
+        initSession();
+
+        dao.updateVideo(videoInfo);
+
+        session.commit();
+        closeAll();
+    }
 }
