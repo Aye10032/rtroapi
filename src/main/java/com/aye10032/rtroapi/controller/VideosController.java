@@ -80,7 +80,7 @@ public class VideosController {
     }
 
     @PostMapping("/updateVideo")
-    public Integer updateVideo(@RequestParam @Valid VideoInfo videoInfo){
+    public Integer updateVideo(@RequestBody @Valid VideoInfo videoInfo){
         IVideoDaoImpl dao = new IVideoDaoImpl();
 
         return dao.updateVideo(videoInfo);
